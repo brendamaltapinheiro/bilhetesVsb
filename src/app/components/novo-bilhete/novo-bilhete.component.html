@@ -1,0 +1,38 @@
+<div class="novo-bilhete-container">
+  <form (ngSubmit)="onSubmit()" class="formulario-mensagem">
+    <div class="form-group">
+      <label for="nome" class="form-label">Nome</label>
+      <input
+        type="text"
+        id="nome"
+        class="form-input"
+        placeholder="Seu nome"
+        [value]="nomeAutor()"
+        (input)="updateNome($event)"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="mensagem" class="form-label">Mensagem</label>
+      <textarea
+        id="mensagem"
+        class="form-textarea"
+        placeholder="Escreva sua mensagem positiva..."
+        rows="3"
+        [value]="textoMensagem()"
+        (input)="updateMensagem($event)"
+        required
+      ></textarea>
+    </div>
+
+    <button
+      type="submit"
+      class="submit-button"
+      [disabled]="!isFormValid()"
+    >
+      <span class="material-icons button-icon">edit</span>
+      Enviar mensagem
+    </button>
+  </form>
+</div>

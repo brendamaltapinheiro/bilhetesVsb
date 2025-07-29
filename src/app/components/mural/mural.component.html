@@ -1,0 +1,23 @@
+<main class="mural-section">
+  @if (mensagens().length > 0) {
+    <div class="mensagens-grid">
+      @for (item of mensagens(); track item.data + item.nome) {
+        <div class="mensagem-card">
+          <div class="mensagem-content">
+            <h3 class="autor-nome">{{ item.nome }}</h3>
+            <p class="texto-mensagem">{{ item.mensagem }}</p>
+            <span class="data-envio">{{ item.data }}</span>
+          </div>
+        </div>
+      }
+    </div>
+  } @else {
+    <div class="empty-state">
+      <div class="empty-icon">
+        <span class="material-icons">sticky_note_2</span>
+      </div>
+      <p class="empty-message">Ainda não há mensagens no mural.</p>
+      <p class="empty-description">Use o formulário acima para adicionar uma mensagem!</p>
+    </div>
+  }
+</main>

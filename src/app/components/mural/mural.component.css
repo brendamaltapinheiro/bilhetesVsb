@@ -1,0 +1,183 @@
+.mural-section {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.mensagens-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.mensagem-card {
+  background: var(--card-color);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transform: rotate(var(--rotation));
+  transition: all 0.3s ease;
+  border-left: 4px solid var(--border-color);
+  position: relative;
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+}
+
+.mensagem-card:nth-child(6n+1) {
+  --card-color: #fff3cd;
+  --border-color: #f1c40f;
+  --rotation: -2deg;
+}
+
+.mensagem-card:nth-child(6n+2) {
+  --card-color: #d1ecf1;
+  --border-color: #3498db;
+  --rotation: 1deg;
+}
+
+.mensagem-card:nth-child(6n+3) {
+  --card-color: #d4edda;
+  --border-color: #27ae60;
+  --rotation: -1deg;
+}
+
+.mensagem-card:nth-child(6n+4) {
+  --card-color: #f8d7da;
+  --border-color: #e74c3c;
+  --rotation: 2deg;
+}
+
+.mensagem-card:nth-child(6n+5) {
+  --card-color: #e2e3e5;
+  --border-color: #6c757d;
+  --rotation: -1.5deg;
+}
+
+.mensagem-card:nth-child(6n+6) {
+  --card-color: #e7d6f7;
+  --border-color: #9b59b6;
+  --rotation: 1.5deg;
+}
+
+.mensagem-card:hover {
+  transform: rotate(0deg) translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+}
+
+.mensagem-card::before {
+  content: '';
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.1) 2px, transparent 2px);
+  border-radius: 50%;
+}
+
+.mensagem-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.autor-nome {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0 0 12px 0;
+  padding-top: 8px;
+}
+
+.texto-mensagem {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #34495e;
+  margin: 0 0 auto 0;
+  flex-grow: 1;
+}
+
+.data-envio {
+  font-size: 0.85rem;
+  color: #7f8c8d;
+  font-weight: 500;
+  margin-top: 12px;
+  align-self: flex-end;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  border: 2px dashed rgba(255, 255, 255, 0.3);
+}
+
+.empty-icon {
+  margin-bottom: 20px;
+  opacity: 0.8;
+}
+
+.empty-icon .material-icons {
+  font-size: 4rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.empty-message {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: white;
+  margin: 0 0 8px 0;
+}
+
+.empty-description {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .mensagens-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .mensagem-card {
+    transform: none;
+    margin-bottom: 8px;
+  }
+
+  .mensagem-card:hover {
+    transform: translateY(-3px);
+  }
+
+  .empty-state {
+    padding: 40px 20px;
+  }
+
+  .empty-icon .material-icons {
+    font-size: 3rem;
+  }
+
+  .empty-message {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .mensagem-card {
+    padding: 16px;
+    min-height: 120px;
+  }
+
+  .autor-nome {
+    font-size: 1rem;
+  }
+
+  .texto-mensagem {
+    font-size: 0.9rem;
+  }
+}
